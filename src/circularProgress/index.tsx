@@ -27,6 +27,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   delay = 0,
   textColor,
   textStyle = {},
+  textTransform,
   fontSize,
   maxValue = 100,
   strokeLinecap = "round",
@@ -77,7 +78,9 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   });
 
   const progressValue = useDerivedValue(() => {
-    return `${valuePrefix}${Math.round(animatedValue.value)}${valueSuffix}`;
+    return textTransform
+      ? textTransform(animatedValue)
+      : `${valuePrefix}${Math.round(animatedValue.value)}${valueSuffix}`;
   });
 
   const animatedTextProps = useAnimatedProps(() => {

@@ -262,6 +262,7 @@ const props = {
 | delay                       | progress animation delay                                                              | Number                        | 0                   | false    |
 | textColor                   | progress value text color                                                             | String                        |                     | false    |
 | textStyle                   | progress value text style                                                             | Object                        | {}                  | false    |
+| textTransform               | function to transform the text value                                                  | Function                      | undefined           | false    |
 | maxValue                    | progress maximum value. Percentage calculation is based on the maximum value provided | String                        | 100                 | false    |
 | fontSize                    | progress value text font size                                                         | Number                        |                     | false    |
 | inActiveStrokeOpacity       | inactive progress circle opacity value                                                | Number                        | 1                   | false    |

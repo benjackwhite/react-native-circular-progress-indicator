@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleProp, TextStyle } from 'react-native';
+import Animated from 'react-native-reanimated';
 export interface CircularProgressProps {
     /**
      * progress value
@@ -12,7 +13,7 @@ export interface CircularProgressProps {
     /**
      * title to display below the progress value
      */
-    title: string | undefined;
+    title?: string;
     /**
      * title text style
      */
@@ -20,15 +21,15 @@ export interface CircularProgressProps {
     /**
      * title text color
      */
-    titleColor: string | undefined;
+    titleColor?: string;
     /**
      * title text font size
      */
-    titleFontSize: number | undefined;
+    titleFontSize?: number;
     /**
      * progress circle background color
      */
-    circleBackgroundColor: string | undefined;
+    circleBackgroundColor?: string;
     /**
      * progress circle radius
      */
@@ -49,6 +50,10 @@ export interface CircularProgressProps {
      * progress value text style
      */
     textStyle?: StyleProp<TextStyle>;
+    /**
+     * function to transform the text value
+     */
+    textTransform?: (value: Animated.SharedValue<number>) => string;
     /**
      * progress maximum value. Percentage calculation is based on the maximum value provided
      */

@@ -11,7 +11,7 @@ export interface CircularProgressWithChildProps {
     /**
      * progress circle background color
      */
-    circleBackgroundColor: string | undefined;
+    circleBackgroundColor?: string;
     /**
      * progress circle radius
      */
