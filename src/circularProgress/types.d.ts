@@ -13,7 +13,6 @@ export interface CircularProgressProps {
      * number of decimal places to be shown
      */
     decimalPlaces?: number;
-
     /**
      * title to display below the progress value
      */
