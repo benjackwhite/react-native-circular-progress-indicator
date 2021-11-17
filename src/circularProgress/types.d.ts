@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleProp, TextStyle } from 'react-native';
-import Animated from 'react-native-reanimated';
 export interface CircularProgressProps {
     /**
      * progress value
@@ -10,6 +9,11 @@ export interface CircularProgressProps {
      * initial progress value. Helpful when used as a countdown timer
      */
     initialValue?: number;
+    /**
+     * number of decimal places to be shown
+     */
+    decimalPlaces?: number;
+
     /**
      * title to display below the progress value
      */
@@ -53,7 +57,7 @@ export interface CircularProgressProps {
     /**
      * function to transform the text value
      */
-    textTransform?: (value: Animated.SharedValue<number>) => string;
+    textValueInterpolation?: [number, number];
     /**
      * progress maximum value. Percentage calculation is based on the maximum value provided
      */

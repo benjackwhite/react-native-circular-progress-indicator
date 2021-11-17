@@ -8,6 +8,7 @@ import Animated, {
   withDelay,
   runOnJS,
   useDerivedValue,
+  interpolate,
 } from "react-native-reanimated";
 import { CircularProgressProps } from "./types";
 
@@ -17,6 +18,7 @@ const AnimatedInput = Animated.createAnimatedComponent(TextInput);
 const CircularProgress: React.FC<CircularProgressProps> = ({
   value,
   initialValue = 0,
+  decimalPlaces = 0,
   title = "",
   titleStyle = {},
   titleColor,
@@ -27,9 +29,9 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   delay = 0,
   textColor,
   textStyle = {},
-  textTransform,
   fontSize,
   maxValue = 100,
+  textValueInterpolation = [0, maxValue],
   strokeLinecap = "round",
   onAnimationComplete = () => {},
   valuePrefix = "",
@@ -78,9 +80,11 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   });
 
   const progressValue = useDerivedValue(() => {
-    return textTransform
-      ? textTransform(animatedValue)
-      : `${valuePrefix}${Math.round(animatedValue.value)}${valueSuffix}`;
+    return `${valuePrefix}${interpolate(
+      animatedValue.value,
+      [0, maxValue],
+      textValueInterpolation
+    ).toFixed(decimalPlaces)}${valueSuffix}`;
   });
 
   const animatedTextProps = useAnimatedProps(() => {

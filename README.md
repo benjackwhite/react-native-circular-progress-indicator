@@ -246,6 +246,7 @@ const props = {
 | :--------------------------:|:--------------------------------------------------------------------------------------|:-----------------------------:|:-------------------:|:--------:|
 | value                       | progress value                                                                        | Number                        | 0                   | true     |
 | initialValue                | initial progress value. Helpful when used as a countdown timer                        | Number                        | 0                   | false    |
+| decimalPlaces               | number of decimal places to be shown                                                  | Number                        | 0                   | false    |
 | title                       | title to display below the progress value                                             | String                        | ''                  | false    |
 | titleStyle                  | title text style                                                                      | Object                        | {}                  | false    |
 | titleColor                  | title text color                                                                      | String                        |                     | false    |
@@ -262,7 +263,7 @@ const props = {
 | delay                       | progress animation delay                                                              | Number                        | 0                   | false    |
 | textColor                   | progress value text color                                                             | String                        |                     | false    |
 | textStyle                   | progress value text style                                                             | Object                        | {}                  | false    |
-| textTransform               | function to transform the text value                                                  | Function                      | undefined           | false    |
+| textValueInterpolation      | output values to interpolate from the animated value                                  | [Number, Number]              | [0, maxValue]       | false     |
 | maxValue                    | progress maximum value. Percentage calculation is based on the maximum value provided | String                        | 100                 | false    |
 | fontSize                    | progress value text font size                                                         | Number                        |                     | false    |
 | inActiveStrokeOpacity       | inactive progress circle opacity value                                                | Number                        | 1                   | false    |
